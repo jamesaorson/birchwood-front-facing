@@ -1,12 +1,14 @@
 <template>
-  <div>${{ props.blog.ingredients }}</div>
+  <div>{{ props.post.ingredients }}</div>
 </template>
 
 <script setup lang="ts">
 import { defineProps } from "vue";
-import type { Blog } from "@/assets/types";
+import type { Blog } from "@/assets/types"; 
+
+
 const props = defineProps({
-  blog: {
+  post: {
     type: Object as () => Blog,
     default: () => {},
   },
@@ -14,5 +16,8 @@ const props = defineProps({
 </script>
 
 <style scoped>
-
+    div {
+        color: black;
+        background-color: white;
+    }
 </style>

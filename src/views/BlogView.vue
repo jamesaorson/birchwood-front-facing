@@ -13,4 +13,5 @@ import recipes from './../assets/data/recipes.json'
 
 const myRecipes: Ref<Blog[]> = ref(recipes)
 const recipesAsJson: ComputedRef<string> = computed(() => JSON.stringify(myRecipes.value));
+
 </script>
