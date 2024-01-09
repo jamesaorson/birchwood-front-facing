@@ -5,17 +5,30 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <header>
 
-    <div class="wrapper">
-      <RouterLink :to="'/'">Home</RouterLink>
-      <RouterLink :to="'/blog'">Blog</RouterLink>
+    <div class="navbar">
+      <RouterLink class="navbar-item" :to="'/'">Home</RouterLink>
+      <RouterLink class="navbar-item" :to="'/blog'">Blog</RouterLink>
     </div>
   </header>
 
   <RouterView />
 </template>
 
-<style scoped>
+<style>
 * {
   border: 1px solid red;
 }
+
+.navbar {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.navbar-item {
+  padding-left: 5em;
+  padding-right: 5em;
+}
+
 </style>
