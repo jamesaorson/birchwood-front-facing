@@ -6,7 +6,7 @@ on:
   workflow_dispatch:  # Allow manual triggers from the GitHub Actions tab
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -39,10 +39,10 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
-      
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist  # Directory to publish
+        publish_dir: ./dist  
 
