@@ -6,8 +6,13 @@ import { RouterLink, RouterView } from 'vue-router'
   <header>
 
     <div class="navbar">
-      <RouterLink class="navbar-item" :to="'/'">Home</RouterLink>
-      <RouterLink class="navbar-item" :to="'/blog'">Blog</RouterLink>
+      <div class="name">
+        Brandon's Recipe Stash
+      </div>
+      <div class="nav-tabs">
+        <RouterLink class="navbar-item" :to="'/'">Home</RouterLink>
+        <RouterLink class="navbar-item" :to="'/blog'">Blog</RouterLink>
+      </div>
     </div>
   </header>
 
@@ -20,15 +25,17 @@ import { RouterLink, RouterView } from 'vue-router'
 }
 
 .navbar {
-  color: white;
+  background-color: #A4BEF3;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .navbar-item {
   padding-left: 5em;
   padding-right: 5em;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 </style>
