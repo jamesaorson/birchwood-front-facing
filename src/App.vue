@@ -7,7 +7,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
     <div class="navbar">
       <div class="name">
-        Brandon's Recipe Collection !!!!!
+        Brandon's Recipe Collection
       </div>
       <div class="nav-tabs">
         <RouterLink class="navbar-item" :to="'/'">Home</RouterLink>
