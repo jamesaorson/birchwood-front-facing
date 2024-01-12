@@ -3,51 +3,32 @@ name: Deploy Vue.js to GitHub Branch
 on:
   push:
     branches: [main]
-  workflow_dispatch:  
-
-permissions:
-  contents: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
+  workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3 
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20' 
-
-      - name: Install Dependencies
-        run: npm install 
-
-      - name: Build
-        run: npm run build 
-
   deploy:
     runs-on: ubuntu-latest
-    needs: build
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Push to github-page Branch
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Project
+        run: npm run build
+
+      - name: Deploy to GitHub Branch
         run: |
-          git config user.name "GitHub Action"
-          git config user.email "action@github.com"
-          git checkout -b github-page
-          echo "adding dist:"
-          git add dist
-          git status
-          echo "howdy"
+          git checkout --orphan github-page
+          git reset --hard
+          git add -f dist
+          git mv dist/* .
+          git clean -fdx
           git commit -m "Deploy to github-page branch"
-          echo "here"
-          echo "now here"
-          git push -f origin github-page:github-page
+          git push -f origin HEAD:github-page
