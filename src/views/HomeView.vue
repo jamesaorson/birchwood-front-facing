@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="content">
         yee haw
     </div>
 </template>
@@ -9,5 +9,7 @@
 </script>
 
 <style scoped>
-
+    .content {
+        color: antiquewhite;
+    }
 </style>

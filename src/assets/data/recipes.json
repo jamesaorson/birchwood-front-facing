@@ -1,6 +1,7 @@
 [
     {
         "id": 1,
+        "title": "Red Bean Soup Thing",
         "ingredients": [
             "1 Chorizo Sausage",
             "700g Butterbeans",
@@ -34,6 +35,7 @@
     },
     {
         "id": 2,
+        "title": "party harty",
         "ingredients": [
             "blah blah",
             "bingbong"
