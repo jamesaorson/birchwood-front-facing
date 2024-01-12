@@ -27,6 +27,12 @@ jobs:
 
     - name: Build the project
       run: npm run build
+    
+    - name: Upload Artifacts for Deployment
+      uses: actions/upload-artifact@v2
+      with:
+        name: github-pages
+        path: ./dist
 
   deploy:
     needs: build
@@ -38,6 +44,8 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
+
 
     runs-on: ubuntu-latest
     steps:
