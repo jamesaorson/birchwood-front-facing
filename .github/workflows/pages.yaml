@@ -25,6 +25,8 @@ jobs:
 
       - name: Deploy to GitHub Branch
         run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
           git checkout --orphan github-page
           git reset --hard
           git add -f dist
