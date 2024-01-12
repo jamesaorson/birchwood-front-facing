@@ -49,6 +49,5 @@ jobs:
           echo "howdy"
           git commit -m "Deploy to github-page branch"
           echo "here"
-          git subtree split --prefix dist -b github-page
           echo "now here"
           git push -f origin github-page:github-page
