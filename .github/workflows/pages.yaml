@@ -43,7 +43,12 @@ jobs:
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
           git checkout -b github-page
+          echo "adding dist:"
           git add dist
+          git status
+          echo "howdy"
           git commit -m "Deploy to github-page branch"
+          echo "here"
           git subtree split --prefix dist -b github-page
+          echo "now here"
           git push -f origin github-page:github-page
