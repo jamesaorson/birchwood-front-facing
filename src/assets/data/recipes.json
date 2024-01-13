@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "title": "Red Bean Soup Thing",
+        "title": "Smoky Chorizo and Red Bean Ragout",
         "ingredients": [
             "1 Chorizo Sausage",
             "700g Butterbeans",
@@ -30,22 +30,37 @@
             "6. I recommend adding the lemon juice straight to whatever I'm going to call this. "
         ],
         "notes": [
-            "Basically anything red and savory will go in here well - Lentils"
+            "Basically anything red and savory will go in here well - Lentils. Also, butterbean alternatives include chickpeas and Great Northern beans, which are easier to get a hold of. "
         ]
     },
     {
         "id": 2,
-        "title": "party harty",
+        "title": "Pork Belly Tacos",
         "ingredients": [
-            "blah blah",
-            "bingbong"
+            "1 lb Pork Belly",
+            "1 tsp smoked paprika",
+            "1 tsp cumin",
+            "1 tsp garlic powder",
+            "2-4 Chipotle peppers in adobo sauce",
+            "Grilled corn kernels",
+            "1 cup Greek yogurt",
+            "1 lime, juiced",
+            "1 tsp honey (or to taste)",
+            "Small tortillas",
+            "1-2 ripe avocados, sliced",
+            "Cilantro for garnish",
+            "Lime wedges for serving",
+            "Optional: thin sliced red onion, feta cheese, black beans"
         ], 
         "instructions": [
-            "poop",
-            "fizzbuzz"
+            "1. Cut pork belly into 1/2\" to 1\" cubes. Toss these in a very lightly oiled pan (the pork belly fat will prevent sticking anyways), and stir in the paprika, cumin, and garlic powder.",
+            "2. While that cooks, mix together the peppers, yogurt, lime juice, and honey. ",
+            "3. Slice the avocados. Sometimes I just mash them. Doesn't really matter other than aesthetics.",
+            "4. The pork belly is hard to tell if it's cooked, so I usually just put it on medium heat for about fifteen minutes. If the edges start searing I know I'm in the right territory, just stir regularly so all sides cook.",
+            "5. Serve on tacos. Beans are good for extra protein. Add cilantro, red onion, feta etc for visible flair."
         ],
         "notes": [
-            "eat sand"
+            "Increase number of chipotle peppers for passive heat in the meal. Alternatively you can add cayenne to the pork belly, just be cautious with it. I also tend to be licentious with the honey."
         ]
     }
 ]

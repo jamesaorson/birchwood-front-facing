@@ -1,11 +1,22 @@
 <template>
-  <div class="blogtile">
+  <div class="blogtile" :id="props.post.title">
     <div class="titlesection">
       <div class="blog title">{{ props.post.title }}</div>
     </div>
-    <div class="blog ingredients">{{ props.post.ingredients }}</div>
-    <div class="blog instructions">{{  props.post.instructions }}</div>
-    <div class="blog notes">{{  props.post.notes }}</div>
+    <div class="ingredients-section">
+      <h4>Ingredients</h4>
+      <div v-for="(ingredient, index) in props.post.ingredients" :key="index" class="ingredient">
+          {{ ingredient }}
+      </div>
+    </div>
+    <div class="instructions-section">
+      <h4>Instructions</h4>
+      <div v-for="(instruction, index) in $props.post?.ingredients" :key="index" class="blog instructions">{{ instruction }}</div>
+    </div>
+    <div class="notes-section">
+      <h4>Notes</h4>
+      <div v-for="(note, index) in $props.post?.ingredients" :key="index" class="blog notes">{{ note }}</div>
+    </div>
   </div>
 </template>
 
@@ -25,8 +36,8 @@ const props = defineProps({
     .blogtile {
         color: black;
         background-color: rgb(201, 204, 206);
-        margin: 5px 0px;
-        padding: 5px;
+        margin: 10px 0px;
+        padding: 10px;
         display: flex;
         flex-direction: column;
     }
@@ -40,5 +51,20 @@ const props = defineProps({
       display: flex;
       justify-content: center;
       padding: 5px;
+    }
+
+    .ingredients-section {
+      padding: 5px 0px;
+      margin: 5px 0px;
+    }
+
+    .instructions-section {
+      padding: 5px 0px;
+      margin: 5px 0px;
+    }
+
+    .notes-section {
+      padding: 5px 0px;
+      margin: 5px 0px;
     }
 </style>

@@ -1,5 +1,8 @@
 <template>
   <div v-for="post in blogs" :key="post.id">
+    <a :href="`#${post.title}`">{{ post.title }}</a>
+  </div>
+  <div v-for="post in blogs" :key="post.id">
     <SingleBlog :post="post" />
   </div>
 </template>
@@ -19,4 +22,10 @@ const blogs: BlogType[] = JSON.parse(props.recipes);
 
 </script>
 
-<style scoped></style>
+<style scoped>
+
+a {
+  color: white;
+}
+
+</style>
