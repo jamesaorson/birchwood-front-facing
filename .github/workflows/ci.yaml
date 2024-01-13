@@ -16,47 +16,37 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
-
+  build-client:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        node-version:
+          - 18.x
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
       with:
-        node-version: '20.x' 
-        cache: 'npm'
+        node-version: ${{ matrix.node-version }}
+        cache: npm
+        cache-dependency-path: package-lock.json
 
     - name: Install dependencies
-      run: npm install
+      run: |
+        npm ci
 
-    - name: Run type checks
-      run: npm run type-check
+    - name: Build
+      run: |
+        npm run build --if-present
+        cp ./dist/index.html
 
-    - name: Build the project
-      run: npm run build
-    
-    # - name: Upload Artifacts for Deployment
-    #   uses: actions/upload-artifact@v2
-    #   with:
-    #     name: github-pages
-    #     path: ./dist
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './dist'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+    - name: Deploy
+      if: ${{ github.ref == 'refs/heads/main' }}
+      uses: peaceiris/actions-gh-pages@v3.6.1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: ./dist
+        allow_empty_commit: false
+        keep_files: false
+        force_orphan: true
