@@ -38,7 +38,7 @@ jobs:
     - name: Build
       run: |
         npm run build --if-present
-        cp ./dist/index.html
+        cp dist/index.html
 
     - name: Deploy
       if: ${{ github.ref == 'refs/heads/main' }}
