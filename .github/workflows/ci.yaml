@@ -32,23 +32,8 @@ jobs:
     - name: Build the project
       run: npm run build
     
-    - name: Upload Artifacts for Deployment
-      uses: actions/upload-artifact@v2
-      with:
-        name: github-pages
-        path: ./dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Download Artifacts
-      uses: actions/download-artifact@v2
-      with:
-        name: github-pages
-
-    - name: Deploy to GitHub Pages
-      uses: actions/deploy-pages@v4
-      with:
-        path: ./dist
+    # - name: Upload Artifacts for Deployment
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: github-pages
+    #     path: ./dist
